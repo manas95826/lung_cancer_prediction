@@ -31,7 +31,6 @@ def predict_lung_cancer_status(input_data):
     return int(prediction[0])
 
 def main():
-    st.set_theme("dark")
     st.title("Lung Cancer Prediction")
 
     st.sidebar.header("User Input")
