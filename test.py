@@ -13,7 +13,7 @@ warnings.filterwarnings('ignore')
 # Load the trained model
 with open("lung_cancer.pkl", "rb") as f:
     model = pickle.load(f)
-st.set_theme("dark")
+# st.set_theme("dark")
 # Define default values for mean and variance
 default_mean = 0.0
 default_var = 1.0
