@@ -34,7 +34,7 @@ def main():
     st.title("Lung Cancer Prediction")
 
     st.sidebar.header("User Input")
-    age = st.sidebar.number_input("Age", min_value=0, max_value=100, step=1, key="age")
+    age = st.sidebar.number_input("Age", min_value=1, max_value=100, step=1, key="age")
     gender = st.sidebar.selectbox("Gender", ["M", "F"], key="gender")
     smoking = st.sidebar.selectbox("Smoking Frequency in a Day", ["0","1", "2"], key="smoking")
     yellow_fingers = st.sidebar.selectbox("How many Yellow Fingers", ["0","1", "2"], key="yellow_fingers")
