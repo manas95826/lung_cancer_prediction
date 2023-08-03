@@ -68,7 +68,7 @@ def main():
 
     result = predict_lung_cancer_status(input_data)
 
-    if result == 0:
+    if result == 1:
         st.write("Prediction: You've Lung Cancer! Bye bye tata, good bye gaya!")
     else:
         st.write("Prediction: You don't have lung cancer chill, have good sex!")
