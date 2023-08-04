@@ -28,7 +28,9 @@ def predict_lung_cancer_status(input_data):
     input_df.GENDER.replace({'M': '1', 'F': '0'}, inplace=True)
     # input_scaled = scaler.transform(input_df)
     prediction = model.predict(input_df)
-    return int(prediction[0])
+    input_array = np.array([list(input_data.values())])
+    probability = model.predict_proba(input_array)[0]
+    return int(prediction[0]),probability
 
 def main():
     st.title("Lung Cancer Prediction")
