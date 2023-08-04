@@ -76,7 +76,7 @@ def main():
         st.success("Lung Cancer Detected! Bye bye tata gaya")
             
 
-    st.write("Prediction Probability (No, Yes)", probability," %")
+    st.write("Prediction Probability (No, Yes)", probability)
     
 
 if __name__ == "__main__":
