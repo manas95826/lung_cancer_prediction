@@ -28,7 +28,9 @@ def predict_lung_cancer_status(input_data):
     input_df.GENDER.replace({'M': '1', 'F': '0'}, inplace=True)
     # input_scaled = scaler.transform(input_df)
     prediction = model.predict(input_df)
-    return int(prediction[0])
+    # input_array = np.array([list(input_data.values())])
+    probability = model.predict_proba(input_df)[0]
+    return int(prediction[0]),probability
 
 def main():
     st.title("Lung Cancer Prediction")
@@ -66,12 +68,16 @@ def main():
     'CHEST PAIN': chest_pain
 }
 
-    result = predict_lung_cancer_status(input_data)
-
+    result, probability = predict_lung_cancer_status(input_data)
+    
     if result == 1:
         st.write("Prediction: You've Lung Cancer! Bye bye tata, good bye gaya!")
+        st.write("The probability of Lung cancer Detected is:\n NO\n YES",probability)
     else:
         st.write("Prediction: You don't have lung cancer chill, have good sex!")
+        st.write("The probability of Lung cancer Detected is:\n NO\n YES",probability)
+    
 
 if __name__ == "__main__":
     main()
+    
