@@ -70,10 +70,12 @@ def main():
 
     result, probability = predict_lung_cancer_status(input_data)
     
-    st.write("Prediction:", "You've Lung Cancer! Bye bye tata, good bye gaya!" if result == 1 else "You don't have lung cancer chill, have good sex!")
-    st.write("The probability of Lung cancer Detected is:")
-    st.write("NO:", 1 - probability)
-    st.write("YES:", probability)
+    if result == 0:
+            st.error("You don't have lung cancer chill, have good sex!")
+        else:
+            st.success("Lung Cancer Detected! Bye bye tata gaya")
+
+        st.write("Prediction Probability (No, Yes:", probability)
     
 
 if __name__ == "__main__":
