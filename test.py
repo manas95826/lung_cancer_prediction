@@ -1,13 +1,14 @@
 import streamlit as st
 import pickle
 import pandas as pd
+import numpy as np
 
 # Load the trained model
 with open("lung_cancer.pkl", "rb") as f:
     model = pickle.load(f)
 
 def predict_lung_cancer_status(input_data):
-    input_df = pd.DataFrame([input_data])
+    input_df = pd.DataFrame(input_data)
     input_df['GENDER'].replace({'M': 1, 'F': 0}, inplace=True)
     prediction = model.predict(input_df)
     return int(prediction[0])
@@ -50,7 +51,7 @@ def main():
         'FATIGUE': fatigue,
     }
 
-    probability = model.predict_proba([input_data])
+    probability = model.predict_proba([list(input_data.values())])
     result = predict_lung_cancer_status(input_data)
 
     if result == 1:
