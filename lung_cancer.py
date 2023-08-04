@@ -72,10 +72,10 @@ def main():
     
     if result == 1:
         st.write("Prediction: You've Lung Cancer! Bye bye tata, good bye gaya!")
-        st.write("The probability of Lung cancer Detected is:\n NO\n YES",probability)
+        st.write("The probability of Lung cancer Detected is: NO then of YES",probability)
     else:
         st.write("Prediction: You don't have lung cancer chill, have good sex!")
-        st.write("The probability of Lung cancer Detected is:\n NO\n YES",probability)
+        st.write("The probability of Lung cancer Detected is:\n NO then of YES",probability)
     
 
 if __name__ == "__main__":
