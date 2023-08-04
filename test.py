@@ -67,7 +67,7 @@ def main():
 }
 
     result = predict_lung_cancer_status(input_data)
-    probability = model.predict_proba([input_data])
+
     if result == 1:
         st.write("Prediction: You've Lung Cancer! Bye bye tata, good bye gaya!")
     else:
@@ -75,3 +75,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
