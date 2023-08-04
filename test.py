@@ -8,7 +8,6 @@ with open("lung_cancer.pkl", "rb") as f:
 
 def predict_lung_cancer_status(input_data):
     input_df = pd.DataFrame([input_data])
-    input_df['GENDER'].replace({'M': 1, 'F': 0}, inplace=True)
     prediction = model.predict(input_df)
     return int(prediction[0])
 
@@ -33,7 +32,7 @@ def main():
     fatigue = st.sidebar.selectbox("Feeling of Fatigue in a Day", ["0", "1", "2"], key="fatigue")
 
     input_data = {
-        'GENDER': int(gender),
+        'GENDER': 1 if gender == 'M' else 0,  # Convert gender to binary representation
         'AGE': age,
         'SMOKING': int(smoking),
         'YELLOW_FINGERS': int(yellow_fingers),
