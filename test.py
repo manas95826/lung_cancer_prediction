@@ -71,7 +71,8 @@ def main():
     result, probability = predict_lung_cancer_status(input_data)
     
     if result == 1:
-        st.sucess("Prediction: You've Lung Cancer! Bye bye tata, good bye gaya!",probability)
+        st.sucess("Prediction: You've Lung Cancer! Bye bye tata, good bye gaya!")
+        st.write(probability)
     else:
         st.error("Prediction: You don't have lung cancer chill, have good sex!")
     
