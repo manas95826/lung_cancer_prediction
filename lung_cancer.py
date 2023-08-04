@@ -29,7 +29,7 @@ def predict_lung_cancer_status(input_data):
     # input_scaled = scaler.transform(input_df)
     prediction = model.predict(input_df)
     # input_array = np.array([list(input_data.values())])
-    probability = model.predict_proba(input_df)[0]
+    probability = model.predict_proba(input_df)
     return int(prediction[0]),probability
 
 def main():
@@ -70,12 +70,13 @@ def main():
 
     result, probability = predict_lung_cancer_status(input_data)
     
-    if result == 1:
-        st.write("Prediction: You've Lung Cancer! Bye bye tata, good bye gaya!")
-        st.write("The probability of Lung cancer Detected is: NO then of YES",probability)
+    if result == 0:
+            st.error("You don't have lung cancer chill, have good sex!")
     else:
-        st.write("Prediction: You don't have lung cancer chill, have good sex!")
-        st.write("The probability of Lung cancer Detected is:\n NO then of YES",probability)
+        st.success("Lung Cancer Detected! Bye bye tata gaya")
+            
+
+    st.write("Prediction Probability (No, Yes)", probability)
     
 
 if __name__ == "__main__":
