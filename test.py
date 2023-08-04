@@ -1,14 +1,13 @@
 import streamlit as st
 import pickle
 import pandas as pd
-import numpy as np
 
 # Load the trained model
 with open("lung_cancer.pkl", "rb") as f:
     model = pickle.load(f)
 
 def predict_lung_cancer_status(input_data):
-    input_df = pd.DataFrame(input_data)
+    input_df = pd.DataFrame([input_data])
     input_df['GENDER'].replace({'M': 1, 'F': 0}, inplace=True)
     prediction = model.predict(input_df)
     return int(prediction[0])
@@ -34,24 +33,24 @@ def main():
     fatigue = st.sidebar.selectbox("Feeling of Fatigue in a Day", ["0", "1", "2"], key="fatigue")
 
     input_data = {
-        'GENDER': gender,
+        'GENDER': int(gender),
         'AGE': age,
-        'SMOKING': smoking,
-        'YELLOW_FINGERS': yellow_fingers,
-        'ANXIETY': anxiety,
-        'CHEST_PAIN': chest_pain,
-        'SWALLOWING_DIFFICULTY': swallowing_difficulty,
-        'SHORTNESS_OF_BREATH': shortness_of_breath,
-        'PEER_PRESSURE': peer_pressure,
-        'CHRONIC_DISEASE': chronic_disease,
-        'COUGHING': coughing,
-        'ALCOHOL_CONSUMPTION': alcohol_consumption,
-        'WHEEZING': wheezing,
-        'ALLERGY': allergy,
-        'FATIGUE': fatigue,
+        'SMOKING': int(smoking),
+        'YELLOW_FINGERS': int(yellow_fingers),
+        'ANXIETY': int(anxiety),
+        'CHEST_PAIN': int(chest_pain),
+        'SWALLOWING_DIFFICULTY': int(swallowing_difficulty),
+        'SHORTNESS_OF_BREATH': int(shortness_of_breath),
+        'PEER_PRESSURE': int(peer_pressure),
+        'CHRONIC_DISEASE': int(chronic_disease),
+        'COUGHING': int(coughing),
+        'ALCOHOL_CONSUMPTION': int(alcohol_consumption),
+        'WHEEZING': int(wheezing),
+        'ALLERGY': int(allergy),
+        'FATIGUE': int(fatigue),
     }
 
-    probability = model.predict_proba([list(input_data.values())])
+    probability = model.predict_proba([input_data])
     result = predict_lung_cancer_status(input_data)
 
     if result == 1:
