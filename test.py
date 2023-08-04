@@ -73,7 +73,7 @@ def main():
     if result == 1:
         st.sucess("Prediction: You've Lung Cancer! Bye bye tata, good bye gaya!")
     else:
-        st.error("Prediction: You don't have lung cancer chill, have good sex!",probability)
+        st.write("Prediction: You don't have lung cancer chill, have good sex!",probability)
     
 
 if __name__ == "__main__":
