@@ -66,7 +66,7 @@ def main():
     'CHEST PAIN': chest_pain
 }
 
-   result, probability = predict_lung_cancer_status(input_data)
+    result, probability = predict_lung_cancer_status(input_data)
     
     if result == 1:
         st.write("Prediction: You've Lung Cancer! Bye bye tata, good bye gaya!")
