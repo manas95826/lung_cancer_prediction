@@ -29,7 +29,7 @@ def predict_lung_cancer_status(input_data):
     # input_scaled = scaler.transform(input_df)
     prediction = model.predict(input_df)
     # input_array = np.array([list(input_data.values())])
-    probability = model.predict_proba(input_data)[0]
+    probability = model.predict_proba(input_df)[0]
     return int(prediction[0]),probability
 
 def main():
