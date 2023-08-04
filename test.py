@@ -65,13 +65,13 @@ def main():
     'SWALLOWING DIFFICULTY': swallowing_difficulty,
     'CHEST PAIN': chest_pain
 }
-
+    probability=model.predict_proba([input_data])
     result = predict_lung_cancer_status(input_data)
 
     if result == 1:
-        st.write("Prediction: You've Lung Cancer! Bye bye tata, good bye gaya!")
+        st.write("Prediction: You've Lung Cancer! Bye bye tata, good bye gaya! with probability",probability)
     else:
-        st.write("Prediction: You don't have lung cancer chill, have good sex!")
+        st.write("Prediction: You don't have lung cancer chill, have good sex! with probability",probability)
 
 if __name__ == "__main__":
     main()
